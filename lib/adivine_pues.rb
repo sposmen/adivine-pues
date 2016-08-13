@@ -1,30 +1,34 @@
 require './lib/question'
 
+require './lib/question_db'
+
 class AdivinePues
 
   attr_accessor :question
 
   def initialize
-    @question = Question.new(dialog: "Why so serious?")
-    @question.right_answer = "Batman the dark knight"
-    @question.options = [
-      "Terminator",
-      "Batman the dark knight",
-      "Batman begins",
-      "Batman forever"
-    ]
+    @question = []
+    # Iterar sobre preguntas
+    QUESTIONS.each { |q|
+      question= Question.new(dialog: q[:dialog])
+      question.right_answer = q[:answer]
+      question.options = q[:options]
+      question.hint = q[:hint]
+
+      @question.push question
+    }
   end
 
-  def get_pregunta
-    @question.dialog
+  def get_pregunta (index)
+    @question[index].dialog
   end
 
-  def get_options
-    @question.options
+  def get_options(index)
+    @question[index].options
   end
 
-  def verifyAnswer dialog, selected_movie
-    @question.is_right_answer? selected_movie
+  def verifyAnswer(index, selected_movie)
+    @question[index].is_right_answer? selected_movie
 
   end
 end

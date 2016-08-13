@@ -4,7 +4,7 @@ require './lib/adivine_pues'
 enable :sessions
 
 get '/' do
-  session[:question] = AdivinePues.new.question
+  session[:question] = AdivinePues.new.question[0]
   erb :index, layout: :layout
 end
 
