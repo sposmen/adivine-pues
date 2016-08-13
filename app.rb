@@ -3,6 +3,8 @@ require './lib/adivine_pues'
 
 enable :sessions
 
+set :public_folder, Proc.new { File.join(root, "static") }
+
 get '/' do
   session[:question] = AdivinePues.new.question[0]
   erb :index, layout: :layout
