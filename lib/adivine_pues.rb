@@ -13,7 +13,7 @@ class AdivinePues
     ]
   end
 
-  def verifyAnswer dialog, selected_movie
+  def verifyAnswer dialog, selectedMovie
     if selectedMovie == 'Batman the dark night'
       true
     else
