@@ -1,9 +1,12 @@
 require 'sinatra'
 require './lib/adivine_pues'
 
-enable :sessions
+# Configs
+use Rack::Session::Cookie, :key => 'rack.session', :path => '/', :secret => 'some-random-string'
 
 set :public_folder, Proc.new { File.join(root, "static") }
+
+# Routes
 
 get '/' do
   session[:question] = AdivinePues.new.question[0]
