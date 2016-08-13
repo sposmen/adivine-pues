@@ -44,7 +44,7 @@ describe AdivinePues do
     @adivine_pues.verifyAnswer(1, "Lord of the rings")
     @adivine_pues.verifyAnswer(2, "God fellas")
     result = @adivine_pues.get_final_score
-    result.should == "Your result is 1/3"
+    result.should == "Your result is 1/5"
   end
 
 end
