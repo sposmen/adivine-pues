@@ -1,12 +1,15 @@
-<h1>Why so serious?</h1>
+<h1><%= session[:question].dialog %></h1>
 <div style="text-align: left">
   <form action="/validar" method="post">
-    <input type="radio" name="answer" value="Terminator" checked>Terminator<br>
-    <input type="radio" name="answer" value="Batman the dark knight" id="batman_dark_knight">Batman the dark night<br>
-    <input type="radio" name="answer" value="Batman begins" id="Batman_begins">Batman begins<br>
-    <input type="radio" name="answer" value="Batman forever">Batman forever<br>
+    <% for option in session[:question].options %>
+
+    <input type="radio" name="answer" value="<%=option%>" id="<%=option.downcase.gsub(' ', '_')%>"><%=option%><br>
+    <% end %>
     <input type="submit" name="enviar" id="validar" value="Go">
   </form>
+
+
+
   <details>
     <summary>Hint!</summary>
     <p>The character that says the dialog is played by Heath Ledger</p>

@@ -1,4 +1,4 @@
-require 'question'
+require './lib/question'
 
 class AdivinePues
 

@@ -13,13 +13,13 @@ Feature:
 
   Scenario: I could select a question and validate if it's ok
     Given I open the web app
-    When I select "batman_dark_knight"
+    When I select "batman_the_dark_knight"
     And I press "Go"
     Then I should see "Correct"
 
   Scenario: I can go back to the main page
     Given I open the web app
-    And I select "batman_dark_knight"
+    And I select "batman_the_dark_knight"
     And I press "Go"
     When I click on "Play again"
     Then I should see "Why so serious?"
