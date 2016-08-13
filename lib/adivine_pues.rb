@@ -2,9 +2,11 @@ require 'question'
 
 class AdivinePues
 
+  attr_accessor :question
+
   def initialize
     @question = Question.new(dialog: "Why so serious?")
-    @question.right_answer = "Batman the dark night"
+    @question.right_answer = "Batman begins"
     @question.options = [
       "Terminator",
       "Batman the dark night",

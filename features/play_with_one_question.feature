@@ -10,7 +10,7 @@ Feature:
     And I should see "Batman the dark knight"
     And I should see "Batman begins"
     And I should see "Batman forever"
-    
+
   Scenario: I could select a question and validate if it's ok
     Given I open the web app
     When I select "batman_dark_knight"
