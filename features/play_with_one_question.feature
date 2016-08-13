@@ -23,3 +23,7 @@ Feature:
     And I press "Go"
     When I click on "Play again"
     Then I should see "Why so serious?"
+
+  Scenario: I see a hint
+    Given I open the web app
+    Then I should see "Hint"

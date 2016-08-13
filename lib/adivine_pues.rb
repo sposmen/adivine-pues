@@ -16,7 +16,7 @@ class AdivinePues
   def get_pregunta
     @question.dialog
   end
-  
+
   def get_options
     @question.options
   end
