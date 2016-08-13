@@ -7,7 +7,7 @@ class AdivinePues
   attr_accessor :questions
 
   def initialize
-    @score=0
+    @score=0.0
     @questions = []
     # Iterar sobre preguntas
     QUESTIONS.each { |q|
@@ -39,6 +39,7 @@ class AdivinePues
   end
 
   def get_final_score
-    "Your result is #{@score}/#{@questions.length}"
+    last_score = ((@score/5) * 100).round(0)
+    "Your result is #{last_score}%"
   end
 end

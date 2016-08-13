@@ -45,7 +45,7 @@ describe AdivinePues do
     @adivine_pues.verify_answer(1, "Lord of the rings")
     @adivine_pues.verify_answer(2, "God fellas")
     result = @adivine_pues.get_final_score
-    result.should == "Your result is 1/5"
+    result.should == "Your result is 20%"
   end
 
   it 'Should return a question given an index' do
