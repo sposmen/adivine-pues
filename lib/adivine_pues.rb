@@ -1,23 +1,28 @@
+require 'question'
+
 class AdivinePues
 
-
-  def get_pregunta
-    "Why so serious"
-  end
-  def get_options dialog
-    [
-        'Terminator',
-        'Batman the dark knight',
-        'Batman begins',
-        'Batman forever'
+  def initialize
+    @question = Question.new(dialog: "Why so serious?")
+    @question.right_answer = "Batman the dark night"
+    @question.options = [
+      "Terminator",
+      "Batman the dark night",
+      "Batman begins",
+      "Batman forever"
     ]
   end
 
-  def verifyAnswer dialog, selectedMovie
-    if selectedMovie == 'Batman the dark knight'
-      true
-    else
-      false
-    end
+  def get_pregunta
+    @question.dialog
+  end
+  
+  def get_options
+    @question.options
+  end
+
+  def verifyAnswer dialog, selected_movie
+    @question.is_right_answer? selected_movie
+
   end
 end
