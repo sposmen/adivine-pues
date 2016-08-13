@@ -7,14 +7,14 @@ class AdivinePues
   def get_options dialog
     [
         'Terminator',
-        'Batman the dark night',
+        'Batman the dark knight',
         'Batman begins',
         'Batman forever'
     ]
   end
 
   def verifyAnswer dialog, selectedMovie
-    if selectedMovie == 'Batman the dark night'
+    if selectedMovie == 'Batman the dark knight'
       true
     else
       false

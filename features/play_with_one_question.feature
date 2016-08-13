@@ -7,12 +7,19 @@ Feature:
     Given I open the web app
     Then I should see "Why so serious?"
     And I should see "Terminator"
-    And I should see "Batman the dark night"
+    And I should see "Batman the dark knight"
     And I should see "Batman begins"
     And I should see "Batman forever"
     
   Scenario: I could select a question and validate if it's ok
     Given I open the web app
-    When I select "Batman_begins"
-    And I press "validar"
-    Then I should see "Correcto"
+    When I select "batman_dark_knight"
+    And I press "Go"
+    Then I should see "Correct"
+
+  Scenario: I can go back to the main page
+    Given I open the web app
+    And I select "batman_dark_knight"
+    And I press "Go"
+    When I click on "Play again"
+    Then I should see "Why so serious?"

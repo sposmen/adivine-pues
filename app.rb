@@ -6,6 +6,6 @@ get '/' do
 end
 
 post '/validar' do
-  session[:is_correct] = params[:answer] == 'Batman begins'
+  session[:is_correct] = params[:answer] == 'Batman the dark knight'
   erb :answer, layout: :layout
 end
