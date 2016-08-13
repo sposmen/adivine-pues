@@ -54,4 +54,19 @@ describe AdivinePues do
     expect(question.right_answer).to eq("Batman the dark knight")
   end
 
+  it 'muestra el score final cuando ha seleccionado 5 buenas y usado 5 hnts debe ser 75%' do
+    @adivine_pues.verify_answer(0, "Batman the dark knight")
+    @adivine_pues.set_hint_used "f"
+    @adivine_pues.verify_answer(1, "Braveheart")
+    @adivine_pues.set_hint_used "f"
+    @adivine_pues.verify_answer(2, "The Godfather")
+    @adivine_pues.set_hint_used "f"
+    @adivine_pues.verify_answer(3, "Star Wars Episode 4")
+    @adivine_pues.set_hint_used "f"
+    @adivine_pues.verify_answer(4, "Apocalypse Now")
+    @adivine_pues.set_hint_used "t"
+
+    result = @adivine_pues.get_final_score
+    result.should == "Your result is 75%"
+  end
 end

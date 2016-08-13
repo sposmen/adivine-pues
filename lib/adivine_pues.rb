@@ -4,10 +4,11 @@ require './lib/question_db'
 
 class AdivinePues
 
-  attr_accessor :questions
+  attr_accessor :questions, :hints_used
 
   def initialize
     @score=0.0
+    @hints_used = 0
     @questions = []
     # Iterar sobre preguntas
     QUESTIONS.each { |q|
@@ -34,12 +35,17 @@ class AdivinePues
     result
   end
 
+  def set_hint_used hint="f"
+    @hints_used += 1 if hint == "t"
+  end
+
   def set_score result
     @score += 1 if result
   end
 
   def get_final_score
-    last_score = ((@score/5) * 100).round(0)
+    discount = @hints_used * 0.05
+    last_score = (((@score/5) - discount) * 100).round(0)
     "Your result is #{last_score}%"
   end
 end

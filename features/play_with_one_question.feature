@@ -28,6 +28,18 @@ Feature:
     When I click on "Play again"
     Then I should see "Why so serious?"
 
+  Scenario: I can see the results in %
+    Given I open the web app
+    And I select "batman_the_dark_knight"
+    And I press "Go"
+    And I select "bravehearth"
+    And I press "Go"
+    And I select "the_godfather"
+    And I press "Go"
+    And I press "Go"
+    And I press "Go"
+    Then I should see "Your result is 60%"
+
   Scenario: I see a hint
     Given I open the web app
     Then I should see "Hint"
