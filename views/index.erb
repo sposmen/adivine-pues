@@ -1,7 +1,7 @@
 <h1><%= session[:question].dialog %></h1>
 <div style="text-align: left">
   <form action="/validar" method="post">
-    <% for option in session[:question].options %>
+    <% for option in session[:question].options.shuffle %>
 
     <input type="radio" name="answer" value="<%=option%>" id="<%=option.downcase.gsub(' ', '_')%>"><%=option%><br>
     <% end %>
