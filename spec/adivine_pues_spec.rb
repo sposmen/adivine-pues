@@ -16,7 +16,7 @@ describe AdivinePues do
     result = @adivine_pues.get_options
     result.should == [
       'Terminator',
-      'Batman the dark night',
+      'Batman the dark knight',
       'Batman begins',
       'Batman forever'
     ]
@@ -24,7 +24,7 @@ describe AdivinePues do
 
   it 'al verificar respuesta  "Batman the dark night" a la pregunta "Why so serious" debe retornar true' do
     movie = "Why so serious"
-    answer = "Batman the dark night"
+    answer = "Batman the dark knight"
     result = @adivine_pues.verifyAnswer(movie, answer)
     result.should == true
   end

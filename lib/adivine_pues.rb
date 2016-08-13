@@ -6,10 +6,10 @@ class AdivinePues
 
   def initialize
     @question = Question.new(dialog: "Why so serious?")
-    @question.right_answer = "Batman begins"
+    @question.right_answer = "Batman the dark knight"
     @question.options = [
       "Terminator",
-      "Batman the dark night",
+      "Batman the dark knight",
       "Batman begins",
       "Batman forever"
     ]
