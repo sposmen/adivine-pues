@@ -6,19 +6,19 @@ describe AdivinePues do
   before(:each) do
     @adivine_pues = AdivinePues.new
   end
+
   it 'al solicitar una pregunta debe retornar "Why so serious"' do
     result = @adivine_pues.get_pregunta
-    result.should == "Why so serious"
+    result.should == "Why so serious?"
   end
 
   it 'al pasar la pregunta "Why so serious" debe traer las opciones para escoger' do
-    question = "Why so serious"
-    result = @adivine_pues.get_options question
+    result = @adivine_pues.get_options
     result.should == [
-        'Terminator',
-        'Batman the dark night',
-        'Batman begins',
-        'Batman forever'
+      'Terminator',
+      'Batman the dark night',
+      'Batman begins',
+      'Batman forever'
     ]
   end
 
