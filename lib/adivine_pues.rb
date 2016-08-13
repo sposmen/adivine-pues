@@ -7,6 +7,7 @@ class AdivinePues
   attr_accessor :question
 
   def initialize
+    @score=0
     @question = []
     # Iterar sobre preguntas
     QUESTIONS.each { |q|
@@ -28,7 +29,17 @@ class AdivinePues
   end
 
   def verifyAnswer(index, selected_movie)
-    @question[index].is_right_answer? selected_movie
+    result = @question[index].is_right_answer? selected_movie
+    set_score result
+    result
 
+  end
+
+  def set_score result
+    @score += 1 if result
+  end
+
+  def get_final_score
+    "Your result is #{@score}/#{@question.length}"
   end
 end
