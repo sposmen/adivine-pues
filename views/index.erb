@@ -1,7 +1,9 @@
-<h1><%= session[:question].dialog %></h1>
+<h1><%= session[:game].questions[session[:next_page]-1].dialog %></h1>
 <div style="text-align: left">
-  <form action="/validar" method="post">
-    <% for option in session[:question].options.shuffle %>
+
+
+  <form action="/next/<%= session[:next_page] %>" method="post">
+    <% for option in session[:game].questions[session[:next_page]-1].options.shuffle %>
 
     <input type="radio" name="answer" value="<%=option%>" id="<%=option.downcase.gsub(' ', '_')%>"><%=option%><br>
     <% end %>

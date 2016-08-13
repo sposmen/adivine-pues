@@ -4,11 +4,11 @@ require './lib/question_db'
 
 class AdivinePues
 
-  attr_accessor :question
+  attr_accessor :questions
 
   def initialize
     @score=0
-    @question = []
+    @questions = []
     # Iterar sobre preguntas
     QUESTIONS.each { |q|
       question= Question.new(dialog: q[:dialog])
@@ -16,23 +16,22 @@ class AdivinePues
       question.options = q[:options]
       question.hint = q[:hint]
 
-      @question.push question
+      @questions.push question
     }
   end
 
   def get_pregunta (index)
-    @question[index].dialog
+    @questions[index].dialog
   end
 
   def get_options(index)
-    @question[index].options
+    @questions[index].options
   end
 
-  def verifyAnswer(index, selected_movie)
-    result = @question[index].is_right_answer? selected_movie
+  def verify_answer(index, selected_movie)
+    result = @questions[index].is_right_answer? selected_movie
     set_score result
     result
-
   end
 
   def set_score result
@@ -40,6 +39,6 @@ class AdivinePues
   end
 
   def get_final_score
-    "Your result is #{@score}/#{@question.length}"
+    "Your result is #{@score}/#{@questions.length}"
   end
 end

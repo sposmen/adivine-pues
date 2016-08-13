@@ -24,15 +24,16 @@ describe AdivinePues do
 
   it 'al verificar respuesta  "Batman the dark night" a la pregunta "Why so serious" debe retornar true' do
     answer = "Batman the dark knight"
-    result = @adivine_pues.verifyAnswer(0, answer)
+    result = @adivine_pues.verify_answer(0, answer)
     result.should == true
   end
 
   it 'al verificar respuesta  "Terminator" a la pregunta "Why so serious" debe retornar false' do
     answer = "Terminator"
-    result = @adivine_pues.verifyAnswer(0, answer)
+    result = @adivine_pues.verify_answer(0, answer)
     result.should == false
   end
+
 
   it 'al solicitar una segunda pregunta debe retornar "They may take our lives, but they will never take our freedom"' do
     result = @adivine_pues.get_pregunta 1
@@ -40,11 +41,17 @@ describe AdivinePues do
   end
 
   it 'muestra el score final cuando ha seleccionado 1 buena y 2 malas como "Your result is 1/3"' do
-    @adivine_pues.verifyAnswer(0, "Batman the dark knight")
-    @adivine_pues.verifyAnswer(1, "Lord of the rings")
-    @adivine_pues.verifyAnswer(2, "God fellas")
+    @adivine_pues.verify_answer(0, "Batman the dark knight")
+    @adivine_pues.verify_answer(1, "Lord of the rings")
+    @adivine_pues.verify_answer(2, "God fellas")
     result = @adivine_pues.get_final_score
     result.should == "Your result is 1/5"
+  end
+
+  it 'Should return a question given an index' do
+    index = 0
+    question = @adivine_pues.questions[index]
+    expect(question.right_answer).to eq("Batman the dark knight")
   end
 
 end
