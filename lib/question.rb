@@ -4,7 +4,6 @@ class Question
 
   def initialize opt={}
     @dialog = opt[:dialog]
-
   end
 
   def is_right_answer? text
