@@ -11,7 +11,7 @@ When /^I click on "(.*)"$/ do |text|
 end
 
 Then /^I should see "(.*)"$/ do |text|
-  last_response.body.should =~ /#{text}/m
+  expect(page.body).to match /#{text}/m
 end
 
 When /^I fill "(.*)" with "(.*)"$/ do |field, value|
@@ -19,7 +19,7 @@ When /^I fill "(.*)" with "(.*)"$/ do |field, value|
 end
 
 When /^I press "(.*)"$/ do |name|
-  click_button(name)
+  page.find_by_id(name).click
 end
 
 Then(/^I should see the image "(.*?)"$/) do |image_name|

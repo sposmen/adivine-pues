@@ -14,30 +14,30 @@ Feature:
   Scenario: I could select a question and validate if it's ok
     Given I open the web app
     When I select "batman_the_dark_knight"
-    And I press "Go"
+    And I press "go"
     Then I should see "Hint!"
 
   Scenario: I can go back to the main page
     Given I open the web app
     And I select "batman_the_dark_knight"
-    And I press "Go"
-    And I press "Go"
-    And I press "Go"
-    And I press "Go"
-    And I press "Go"
+    And I press "go"
+    And I press "go"
+    And I press "go"
+    And I press "go"
+    And I press "go"
     When I click on "Play again"
     Then I should see "Why so serious?"
 
   Scenario: I can see the results in %
     Given I open the web app
     And I select "batman_the_dark_knight"
-    And I press "Go"
+    And I press "go"
     And I select "bravehearth"
-    And I press "Go"
+    And I press "go"
     And I select "the_godfather"
-    And I press "Go"
-    And I press "Go"
-    And I press "Go"
+    And I press "go"
+    And I press "go"
+    And I press "go"
     Then I should see "Your result is 60%"
 
   Scenario: I see a hint

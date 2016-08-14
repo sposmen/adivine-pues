@@ -4,20 +4,20 @@
 
   <form action="/next/<%= session[:next_page] %>" method="post" style="margin-left: 60px;">
     <div class="form-group">
-    <% for option in session[:game].questions[session[:next_page]-1].options.shuffle %>
+      <% for option in session[:game].questions[session[:next_page]-1].options.shuffle %>
           <div class="radio">
             <label for="<%= option.downcase.gsub(' ', '_') %>">
               <input type="radio" name="answer" value="<%= option %>" id="<%= option.downcase.gsub(' ', '_') %>">
               <%= option %>
             </label>
           </div>
-    <% end %>
-    <input type="hidden" name="hint" id="hint" value="f">
-    <input type="submit" class="btn btn-primary btn-lg" name="enviar" id="validar" value="Go" style="margin-top: 20px">
+      <% end %>
+      <input type="hidden" name="hint" id="hint" value="f">
+      <input type="submit" class="btn btn-primary btn-lg" name="enviar" id="go" value="Go" style="margin-top: 20px">
     </div>
   </form>
-  <details onclick="setHint()">
-    <summary><a id="hint_button" >Hint!</a></summary>
+  <details id="hint_box" onclick="setHint()">
+    <summary><a id="hint_button">Hint!</a></summary>
     <p><%= session[:game].questions[session[:next_page]-1].hint %></p>
   </details>
 
